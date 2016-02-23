@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>account</title>
+    </head>
+    <HEAD> 
+
+<SCRIPT LANGUAGE="javascript">
+function afficher(form2) {
+var testin =form2.input.value;
+//var obShell = new ActiveXObject("Shell.Application");
+//var commandtoRun = "/scripte.sh";
+    //obShell.BrowseForFolder(0, "Choose a folder", 0);
+//    obShell.ShellExecute("./scripte.sh", "testin", "", "open", 1);
+form2.output.value=12
+//node scripte.js
+}
+</SCRIPT>
+
+</HEAD>
+    <body>
+        <h1>Quel est le pid ?</h1>
+       <strong>Donnez le nom de votre processus!</strong>
+
+        <form name ="form2" action="/account/login/">
+            {% csrf_token %}
+            Process_name: <input type="text" name="input" value="" size="30" />
+            <br />
+                     
+             =======>:<input type="button" onclick="afficher(form2)" value="Get PID " />
+              <br />
+
+          
+            Process_pid: <input type="text" name="output" value="" size="30" />
+              <br />
+            </form>
+
+        
+    </body>
+</html>
+

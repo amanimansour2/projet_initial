@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Votre compte</title>
+    </head>
+
+    <body>
+        <h1>Remplir le formulaire pour l'enregistrement</h1>
+
+        {% if registered %}
+         <strong>Congratulation! Vous êtes bien enregistré!</strong>
+        <a href="/account/">Retouner!</a><br /> 
+        {% else %}
+        <strong>Enregistrement ici!</strong><br />
+
+        <form id="user_form" method="post" action="/account/register/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {{ user_form.as_p }}
+           <!-- {{ profile_form.as_p }}-->
+
+            <!-- Provide a button to click to submit the form. -->
+            <input type="submit" name="submit" value="Enregistrer" />
+        </form>
+        {% endif %}
+    </body>
+</html>
+
