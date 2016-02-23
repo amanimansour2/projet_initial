@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app="account">
     <head>
         <title>account</title>
-    </head>
-    <HEAD> 
-
+    
 <SCRIPT LANGUAGE="javascript" type="text/javascript" src ="angular.min.js">
 function afficher(form2) {
 var testin =form2.input.value;
@@ -16,11 +14,16 @@ var testin =form2.input.value;
 form2.output.value=12
 //node scripte.js
 }
-</SCRIPT>
 
-</HEAD>
-    <body>
-        <h1>Quel est le pid ?</h1>
+</SCRIPT>
+<script type="text/javascript" src="app.js"></script>
+</head>
+    <body ng-controller="accountcontroller">
+<div ng-controller="accountcontroller as account">
+<h1> {{product.name}}</h1>       
+<h2>${{product.price}}</h2>
+</div>
+ <h1>Quel est le pid ?</h1>
        <strong>Donnez le nom de votre processus!</strong>
 
         <form name ="form2" action="/account/login/">

@@ -23,6 +23,8 @@ from django.conf.urls import url, include
 #v1_api.register(MyModelResource())
 urlpatterns = [
     url(r'^account/', include('account.urls')),
+   
+
  #   url(r'^api/', include(v1_api.urls)),
     url(r'^admin/', admin.site.urls),
 ]

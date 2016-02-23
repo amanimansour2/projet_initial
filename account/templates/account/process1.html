@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="account">
+    <head>
+        <title>account</title>
+    <SCRIPT LANGUAGE="javascript" type="text/javascript" src ="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></SCRIPT>
+    <script type="text/javascript" src="/angularjs/src/module/app.js"></script>
+    </head>
+    <body ng-controller="accountcontroller as account">
+    <div>
+    Process_name:<input type="text" ng-model="account.input"/><br/>
+    Process_pid: <input type="text" ng-model="account.output()"/><br/>
+   <button ng-show=true > Get PID</button>
+   
+ </div>
+    </body>
+ </html>
+

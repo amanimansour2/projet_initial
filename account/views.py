@@ -72,4 +72,4 @@ def pid (request) :
         Process_pid = request.POST.get('Process pid')
   	
     return render_to_response(
-            'account/process.html',{},context)
+            'account/process1.html',{},context)
