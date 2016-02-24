@@ -6,13 +6,17 @@
     <SCRIPT LANGUAGE="javascript" type="text/javascript" src ="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></SCRIPT>
     <script type="text/javascript" src="{% static "js/app.js" %}"></script>
     </head>
-    <body ng-controller="accountcontroller as account">
+    <body ng-controller="accountcontroller">
     <div>
-    Process_name:<input type="text" ng-model="account.input"/><br/>
-    Process_pid: <input type="text" ng-model="account.output()"/><br/>
-   <!-- <button ng-show=get_users() > Get PID</button> -->
-   
+    Process_name:<input type="text" ng-model="input"/><br/>
+         
+    <button ng-click="getpid(input)" > Get PID</button>  <br/>  
+
+
+    Process_pid: <input type="text" ng-model="name"/><br/>
+
  </div>
+	
     </body>
  </html>
 
