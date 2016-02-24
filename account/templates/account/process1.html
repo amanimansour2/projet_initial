@@ -1,9 +1,10 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html ng-app="account">
     <head>
         <title>account</title>
     <SCRIPT LANGUAGE="javascript" type="text/javascript" src ="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></SCRIPT>
-    <script type="text/javascript" src="/angularjs/src/module/app.js"></script>
+    <script type="text/javascript" src="{% static "js/app.js" %}"></script>
     </head>
     <body ng-controller="accountcontroller as account">
     <div>
