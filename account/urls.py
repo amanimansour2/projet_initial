@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
-urlpatterns = patterns('',
+urlpatterns += patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^about/$', views.about, name='about'),
     #url(r'^category/(?P<category_name_url>\w+)$', views.category, name='category'),
