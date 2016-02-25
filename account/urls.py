@@ -1,9 +1,15 @@
-
+from django.shortcuts import get_object_or_404,render_to_response
+from django.http import HttpResponse
 from django.conf.urls import include,patterns, url
 from django.contrib.auth.models import User
 from account import views
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from rest_framework.renderers import JSONRenderer
 #from account.models import Category,About, Register 
-
+import json
+from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework import routers, serializers, viewsets
 
 # Serializers define the API representation.
@@ -17,14 +23,30 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+def test_rest(request):
+           
+    print "here isn test_rest function"
+    print "request =", request
+    message =  request.GET.get('parameter')
+    data = json.dumps({"username":message})
+    return HttpResponse(data, content_type='application/json')
+
+class TestView(APIView):
+    renderer_classes = (JSONRenderer, )
+    def get(self, request):
+        content = {'username': 'testing'}
+        return Response(content)
+#       return Response(content)
+
+
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
-
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     url(r'^', include(router.urls)),
+    url(r'^test/$',test_rest, name='test_rest'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 urlpatterns += patterns('',
@@ -38,5 +60,5 @@ urlpatterns += patterns('',
     url(r'^logout/$', views.user_logout, name='logout'),
     url(r'^pid/$', views.pid, name='pid'),
  #   url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-
+#    url(r'^test/$', test_rest , name='test_rest'),
 )

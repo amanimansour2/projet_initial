@@ -8,7 +8,8 @@ app.controller('accountcontroller', ['$scope','$http', function($scope,$http) {
      
         $http({
        method : "GET",
-       url : "/account/users/1/"
+       url : "/account/test/",
+       params:{"parameter" : "valeur_amani"},
        }).then(function (response) {
          $scope.name = response.data.username;
      });}
